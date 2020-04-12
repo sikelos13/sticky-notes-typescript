@@ -1,0 +1,31 @@
+.noteslist-container {
+    background-color: #f9f9f8;
+}
+
+.note {
+    width: 200px;
+    height: auto;
+    float: left;
+    background-color: yellow;
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: box-shadow .3s;
+    white-space: pre-wrap;
+  
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        cursor: pointer;
+    }
+
+    &.note-active {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    }
+  }
+
+  .delete-note {
+    padding: 5px;
+    font-size: 20px;
+    color: rgba(0,0,0,0.6);
+    cursor: pointer;
+  }

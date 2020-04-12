@@ -1,0 +1,44 @@
+.note-editor-container {
+    background-color: #ebebc6;
+}
+
+.note-editor-disabled {
+    width: 100%;
+    background-color: lightgray;
+}
+  
+.note-editor {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px;
+    margin: 16px auto;
+  }
+  
+.textarea {
+    background-color: #ebebc6;
+    width: 100%;
+    resize: none;
+    margin: 5px;
+    font-size: 14px;
+    border: none;
+    font-weight: 300;
+    &:focus {
+        outline: 0;
+    }
+
+    &.plain-editor {
+        height: 90%;
+    }
+
+    &.input-editor {
+        font-size: 24px;
+        font-weight: bold;
+    }
+}
+
+.markdown-editor {
+    max-height: 90%;
+    overflow-y: scroll;
+}
+
+  

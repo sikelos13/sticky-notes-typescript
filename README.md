@@ -1,44 +1,128 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Sticky Notes App
 
-## Available Scripts
+Sticky notes e is a simple notes webapp , inspired by
+OSx notes app layout. It's meant to be used for the hiring process evaluation.
 
-In the project directory, you can run:
+## Build With
 
-### `yarn start`
+* [Docker](https://www.docker.com/)
+* [Material UI](https://material-ui.com/)
+* [Create-react-app with Typescript template](https://create-react-app.dev/docs/adding-typescript/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The project is running on docker so only docker need to be installed.
 
-### `yarn test`
+ **install docker separately see details here** [Docker Installation](https://docs.docker.com/install/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+If you want to run in development mode then:
 
-### `yarn build`
+```
+cd detectify_frontend_challenge
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install
+npm start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+ **npm install** is prerequisite for testing too.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Docker build and run
 
-### `yarn eject`
+To run the current project install the prerequisites inside project's directory.
+I have used multi-stage build in Docker, in order to optimize the size of the built image. 
+As you will see in the Dockerfile, an initial node-based phase is utilized only for building the static assets, which are then copied over and served from a stripped-down nginx image. 
+In order to run the project please run:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+cd detectify_frontend_challenge
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+docker build . -t detectify
+docker run -p 80:80 detectify
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ *Note for docker:* Open **localhost** (without a port).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Features implemented
+* Search field with on change search action
+* If search results are null disable the editor
+* If user deletes the currently selected note it will automatically select the next from the top of the list
+* Delete notes from list easily with one click
+* Delete notes from filtered list after search action
+* Create note
+* Notes that are being edit will be automatically saved on the fly
+* Notes will be persisted in localStorage of user's browser
+* Markdown parser implemented with [React Markdown](https://github.com/rexxars/react-markdown)
+* Project has been Dockerized 
 
-## Learn More
+<i>Note for Markdown functionality:</i> <strong>Markdown will only show a readonly version of the note as a preview (see Github's README functionality)</strong>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Components Tree (Inside src directory)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+├── __tests__
+│   └── components
+│       ├── Header.test.tsx
+│       ├── NoteContainer.test.tsx
+│       ├── NoteEditor.test.tsx
+│       └── NotesList.test.tsx
+│   └── containers
+│       └── NotesApp.test.tsx
+│   └── utils.test.ts
+│  
+├── components
+│   └── components
+│       └── Header.tsx
+│       ├── NoNoteSelected.tsx
+│       ├── NoteContainer.tsx
+│       ├── NoteEditor.tsx
+│       └── NoteList.tsx
+│  
+└── containers
+│    └── NotesApp.tsx
+│  
+└── styles
+│    ├── header.tsx
+│    ├── noteeditor.tsx
+│    └── noteslist.tsx
+│  
+├── App.scss
+├── App.test.tsx
+├── App.tsx
+├── history.ts
+├── index.tsx
+├── Routes.tsx
+├── setupTests.ts
+├── theme.tsx
+├── types.ts
+└── utils.ts
+```
+
+### Testing build with
+
+* [Jest for React](https://jestjs.io/)
+* [Enzyme for jest](https://enzymejs.github.io/enzyme/)
+
+### Testing
+
+For testing i have used jest framework together with enzyme to render components.
+To run the test type:
+
+```
+npm test
+```
+
+To run test with coverage run:
+
+```
+npm test -- --coverage
+```
+
+## Authors
+
+* **Stefanos Athanasoulias**
+
+### User activity diagram
+
+Image can be found at (/public/images/activity_diagram.png)
+
+![activity diagram](/public/images/activity_diagram.png)

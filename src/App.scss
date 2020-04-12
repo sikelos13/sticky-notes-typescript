@@ -1,0 +1,9 @@
+@import './styles/noteslist.scss';
+@import './styles/noteeditor.scss';
+@import './styles/header.scss';
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
