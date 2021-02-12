@@ -18,7 +18,7 @@ The project is running on docker so only docker need to be installed.
 If you want to run in development mode then:
 
 ```
-cd detectify_frontend_challenge
+cd stikcy-notes-typescript
 
 npm install
 npm start
