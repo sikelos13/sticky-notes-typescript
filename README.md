@@ -34,7 +34,7 @@ As you will see in the Dockerfile, an initial node-based phase is utilized only 
 In order to run the project please run:
 
 ```
-cd detectify_frontend_challenge
+cd stikcy-notes-typescript
 
 docker build . -t detectify
 docker run -p 80:80 detectify
