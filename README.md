@@ -36,8 +36,8 @@ In order to run the project please run:
 ```
 cd stikcy-notes-typescript
 
-docker build . -t detectify
-docker run -p 80:80 detectify
+docker build . -t stikcy-notes-typescript
+docker run -p 80:80 stikcy-notes-typescript
 ```
 
  *Note for docker:* Open **localhost** (without a port).
