@@ -19,7 +19,7 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-markdown": "^4.3.1",
